@@ -1,4 +1,4 @@
-const FormInput = ({label,name,type,defaultValue}) => {
+const FormInput = ({ label, name, type, defaultValue }) => {
   return (
     <label className="form-control">
       <div className="label">
@@ -12,5 +12,5 @@ const FormInput = ({label,name,type,defaultValue}) => {
       />
     </label>
   );
-}
-export default FormInput
+};
+export default FormInput;
