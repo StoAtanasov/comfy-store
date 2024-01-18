@@ -6,11 +6,16 @@ const SubmitBtn = ({ text }) => {
   return (
     <button
       type="submit"
-      className="btn btn-primary capitalize btn-block" disabled={isSubmitting}>
-      {isSubmitting ? <>
-        <span className="loading loading-ring"></span>
-        Sending...
-      </> :  text   || 'Submit' }
+      className="btn btn-primary capitalize btn-block"
+      disabled={isSubmitting}>
+      {isSubmitting ? (
+        <>
+          <span className="loading loading-ring"></span>
+          Sending...
+        </>
+      ) : (
+           text  || "Submit"
+      )}
     </button>
   );
 };
