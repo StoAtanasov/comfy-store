@@ -10,7 +10,7 @@ const Login = () => {
         <h4 className="text-center text-3xl font-bold">Login</h4>
         <FormInput
           type="email"
-          label="email"
+          label="email"npm 
           // the API is expecting name to be identifier NOT email
           name="identifier"
           defaultValue="test@test.com"
