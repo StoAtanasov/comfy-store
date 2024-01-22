@@ -2,13 +2,31 @@ import { BsCart3, BsMoonFill, BsSunFill } from "react-icons/bs";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 import NavLinks from "./NavLinks";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+const themes = {
+  bumblebee: "bumblebee",
+  dracula: "dracula",
+};
+
+const getThemeFromLocalStorage = () => {
+  return localStorage.getItem("theme" || themes.bumblebee);
+};
 
 const Navbar = () => {
-  const [theme, setTheme] = useState(false);
+  const [theme, setTheme] = useState(getThemeFromLocalStorage);
   const handleTheme = () => {
-    setTheme(!theme);
-  }
+    const { bumblebee, dracula } = themes;
+    const newTheme = theme === bumblebee ? dracula : bumblebee;
+    setTheme(newTheme);
+  };
+
+  useEffect(() => {
+    //  targeting the html element data-theme to set the theme
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
   return (
     <nav className="bg-base-200">
       <div className="navbar align-element">
@@ -42,9 +60,12 @@ const Navbar = () => {
         <div className="navbar-end">
           {/* THEME SETUP */}
           <label className="swap swap-rotate">
-            <input type="checkbox" onChange={handleTheme} />
+            <input
+              type="checkbox"
+              onChange={handleTheme}
+            />
             {/* SUN ICON */}
-            <BsSunFill className="swap-on h-4 w-4"/>
+            <BsSunFill className="swap-on h-4 w-4" />
             {/* MOON ICON */}
             <BsMoonFill className="swap-off h-4 w-4" />
           </label>
