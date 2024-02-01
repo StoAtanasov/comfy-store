@@ -83,16 +83,17 @@ const SingleProduct = () => {
               value={amount}
               onChange={handleAmount}>
               {generateAmountOptions(20)}
-              </select>
+            </select>
           </div>
           {/* CART BTN */}
           <div className="mt-10">
             <button
               className="btn btn-secondary btn-md capitalize"
               onClick={() => {
-                console.log("add to bag")
-              }}
-            >add to bag</button>
+                console.log("add to bag");
+              }}>
+              add to bag
+            </button>
           </div>
         </div>
       </div>
